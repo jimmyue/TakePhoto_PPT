@@ -59,11 +59,11 @@ def GetPhoto(month,week,month_end=0):
 	#使用docker部署的selenium远程端执行
 	driver = webdriver.Remote(command_executor="http://10.10.10.71:4444/wd/hub",desired_capabilities=DesiredCapabilities.CHROME)
 	driver.implicitly_wait(10)        #隐性等待
-	driver.get('http://telecom.thinktanksgmmd.com')
+	driver.get('url')
 	driver.set_window_size(1920,1080) #浏览器分辨率设置
 	#登录系统
-	driver.find_element_by_id('username').send_keys('sgmm')
-	driver.find_element_by_id('password').send_keys('1'+Keys.RETURN)
+	driver.find_element_by_id('username').send_keys('username')
+	driver.find_element_by_id('password').send_keys('password'+Keys.RETURN)
 
 	#smart品牌人气跟踪页面
 	driver.get('http://web.thinktanksgmmd.com/smart/mainMenu?pathUrl=#/smart-week-analysis/brand-popularity-track')
