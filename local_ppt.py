@@ -41,7 +41,7 @@ def sqlQuery(ymw):
 	from t1
 	where t1.yearnum||lpad(t1.monthnum,2,0)||'W'||t1.weeknum='{}'
 	'''
-	db_link= 'sgmdm/bg9k74z1@10.10.8.99:1521/DBDM'
+	db_link= 'username/password@IP:1521/database'
 	con = cx_Oracle.connect(db_link)
 	cur = con.cursor() 
 	cur.execute(sql.format(ymw))
@@ -70,11 +70,11 @@ def TakeShot(driver, element, filename):
 def GetPhoto(month,week,month_end=0):
 	driver=webdriver.Chrome()
 	driver.implicitly_wait(10)        #隐性等待
-	driver.get('http://telecom.thinktanksgmmd.com')
+	driver.get('url')
 	driver.set_window_size(1920,1080) #浏览器分辨率设置
 	#登录系统
-	driver.find_element_by_id('username').send_keys('sgmm')
-	driver.find_element_by_id('password').send_keys('1'+Keys.RETURN)
+	driver.find_element_by_id('username').send_keys('username')
+	driver.find_element_by_id('password').send_keys('password'+Keys.RETURN)
 
 	#smart品牌人气跟踪页面
 	driver.get('http://web.thinktanksgmmd.com/smart/mainMenu?pathUrl=#/smart-week-analysis/brand-popularity-track')
