@@ -95,6 +95,9 @@ def GetPhoto(month,week,month_end=0):
 	#smart品牌人气汇总页面
 	driver.get('http://web.thinktanksgmmd.com/smart/smart/smartMain.do#/smart-week-analysis/model-popularity-track')
 	time.sleep(3)
+	#隐藏排序标签，querySelectorAll找到对应标签，循环隐藏
+	js1='document.querySelectorAll(".order-option.order-icon").forEach(function(node, index) { if (index < 13) { node.style.display = "none" } })'
+	driver.execute_script(js1)
 	#选择时间
 	driver.find_element_by_css_selector('#root > div > div > div.page-content > div > div.toolbar.white > form > div:nth-child(1) > div > input').click()
 	driver.find_element_by_link_text(month).click()
@@ -109,9 +112,9 @@ def GetPhoto(month,week,month_end=0):
 	driver.find_element_by_css_selector('#root > div > div > div.page-content > div > div.toolbar.white > form > div:nth-child(2) > div > div > div > div.panel-body > div > div > div.tab-pane.active > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(2) > table > tbody > tr:nth-child(8) > td:nth-child(1) > a > span:nth-child(3)').click()
 	driver.find_element_by_link_text('Envision S').click()
 	#拉动滚动条
-	js='document.getElementsByClassName("scroller model-select-content")[0].scrollTop=100' 
-	driver.execute_script(js)
-    #选择Envision
+	js2='document.getElementsByClassName("scroller model-select-content")[0].scrollTop=100' 
+	driver.execute_script(js2)
+	#选择Envision
 	driver.find_element_by_css_selector('#root > div > div > div.page-content > div > div.toolbar.white > form > div:nth-child(2) > div > div > div > div.panel-body > div > div > div.tab-pane.active > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2) > a:nth-child(2) > span:nth-child(3)').click()
 	driver.find_element_by_link_text('GL8 Avenir').click()
 	driver.find_element_by_link_text('GL8 ES').click()
