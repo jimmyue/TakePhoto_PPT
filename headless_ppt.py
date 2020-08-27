@@ -109,7 +109,7 @@ def GetPhoto(month,week,month_end=0):
 	#拉动滚动条
 	js2='document.getElementsByClassName("scroller model-select-content")[0].scrollTop=100' 
 	driver.execute_script(js2)
-    #选择Envision
+	#选择Envision
 	driver.find_element_by_css_selector('#root > div > div > div.page-content > div > div.toolbar.white > form > div:nth-child(2) > div > div > div > div.panel-body > div > div > div.tab-pane.active > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2) > a:nth-child(2) > span:nth-child(3)').click()
 	driver.find_element_by_link_text('GL8 Avenir').click()
 	driver.find_element_by_link_text('GL8 ES').click()
