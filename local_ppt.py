@@ -146,7 +146,7 @@ def add_slide(text,photo):
 	if text[0] in (5,7):
 		#title添加新文本
 		# 插入幻灯片
-		blank_slide = prs.slide_layouts[5] #使用第7个母版格式
+		blank_slide = prs.slide_layouts[2] #使用第7个母版格式
 		slide = prs.slides.add_slide(blank_slide)
 		#title
 		title_shape = slide.shapes.title 
@@ -158,9 +158,30 @@ def add_slide(text,photo):
 		# 添加图片
 		slide.shapes.add_picture(image_file=photo[0],left=Inches(0.5),top=Inches(1.4),width=Inches(9),height=Inches(2.8))
 		slide.shapes.add_picture(image_file=photo[1],left=Inches(0.5),top=Inches(4.5),width=Inches(9),height=Inches(2.8))
+		#第一个文本框
+		textbox = slide.shapes.add_textbox(left=Cm(0.5),top=Cm(2.8),width=Cm(3),height=Cm(1))
+		tf = textbox.text_frame
+		para = tf.paragraphs[0]
+		para.text = "周度表现"
+		font = para.font
+		font.name = '微软雅黑'  # 字体类型
+		font.bold = True       # 加粗
+		font.underline = True  # 下划线
+		font.size = Pt(11)     # 大小
+		#第二个文本框
+		textbox = slide.shapes.add_textbox(left=Cm(0.5),top=Cm(11),width=Cm(3),height=Cm(1))
+		tf = textbox.text_frame
+		para = tf.paragraphs[0]
+		para.text = "月度表现"
+		font = para.font
+		font.name = '微软雅黑'  # 字体类型
+		font.bold = True       # 加粗
+		font.underline = True  # 下划线
+		font.size = Pt(11)     # 大小
+
 	elif text[0]==2:
 		# 插入幻灯片
-		blank_slide = prs.slide_layouts[3] #使用第6个母版格式
+		blank_slide = prs.slide_layouts[2] #使用第6个母版格式
 		slide = prs.slides.add_slide(blank_slide)
 		#title
 		title_shape = slide.shapes.title 
@@ -171,9 +192,20 @@ def add_slide(text,photo):
 		new_paragraph.font.size = Pt(16)
 		# 添加图片
 		slide.shapes.add_picture(image_file=photo,left=Inches(0),top=Inches(1.5),width=Inches(10),height=Inches(5.5))
+		#文本框
+		textbox = slide.shapes.add_textbox(left=Cm(0.5),top=Cm(2.8),width=Cm(3),height=Cm(1))
+		tf = textbox.text_frame
+		para = tf.paragraphs[0]
+		para.text = "周度表现"
+		font = para.font
+		font.name = '微软雅黑'  # 字体类型
+		font.bold = True       # 加粗
+		font.underline = True  # 下划线
+		font.size = Pt(11)     # 大小
+
 	elif text[0]==3:
 		# 插入幻灯片
-		blank_slide = prs.slide_layouts[4] #使用第6个母版格式
+		blank_slide = prs.slide_layouts[2] #使用第6个母版格式
 		slide = prs.slides.add_slide(blank_slide)
 		#title
 		title_shape = slide.shapes.title 
@@ -184,6 +216,17 @@ def add_slide(text,photo):
 		new_paragraph.font.size = Pt(16)
 		# 添加图片
 		slide.shapes.add_picture(image_file=photo,left=Inches(0),top=Inches(1.5),width=Inches(10),height=Inches(5.5))
+		#文本框
+		textbox = slide.shapes.add_textbox(left=Cm(0.5),top=Cm(2.8),width=Cm(3),height=Cm(1))
+		tf = textbox.text_frame
+		para = tf.paragraphs[0]
+		para.text = "月度表现"
+		font = para.font
+		font.name = '微软雅黑'  # 字体类型
+		font.bold = True       # 加粗
+		font.underline = True  # 下划线
+		font.size = Pt(11)     # 大小
+
 	else:
 		# 插入幻灯片
 		blank_slide = prs.slide_layouts[2] #使用第6个母版格式
