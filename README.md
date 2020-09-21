@@ -8,7 +8,11 @@
 
 4.Jenkins集成，动态传递参数
 
-
+#使用headless模式
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+driver = webdriver.Chrome(options=chrome_options)
+ 
 #使用docker部署的selenium远程端执行
 chrome={'browserName': 'chrome', 'maxInstances': '5', 'platform': 'LINUX', 'platformName': 'LINUX', 'seleniumProtocol': 'WebDriver', 'version': '84.0.4147.105'}
 opera={'browserName': 'operablink', 'maxInstances': '5', 'platform': 'LINUX', 'platformName': 'LINUX', 'seleniumProtocol': 'WebDriver'}
